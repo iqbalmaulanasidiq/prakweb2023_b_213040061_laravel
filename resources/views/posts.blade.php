@@ -10,3 +10,5 @@
     </article>
     @endforeach
 @endsection
+
+//vid 6 database
