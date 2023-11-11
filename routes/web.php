@@ -20,13 +20,15 @@ use App\Models\User;
 
 Route::get('/', function () {
     return view("home", [
-    "title" => "Home"
+    "title" => "Home",
+    "active" => "home"
     ]);
 });
 
 Route::get('/about', function () {
     return view("about", [
     "title" => "About",
+    "active" => "about",
     "name" => "Iqbal Maulana Sidiq", 
     "email" => "iqbalsidiq523@gmail.com",
     "image" => "img/profile.png" 
@@ -42,6 +44,7 @@ Route::get('posts/{post:slug}', [PostController::class, 'show']);
 Route::get('/categories', function(){
     return view('categories', [
         'title' => 'Post Categories',
+        'active' => 'categories', //untuk menandakan link mana yang sedang aktif
         'categories' => Category::all()
     ]);
 });
@@ -49,6 +52,7 @@ Route::get('/categories', function(){
 Route::get('/categories/{category:slug}', function(Category $category){
     return view('posts', [
         'title' => "Post By Category : $category->name",
+        'active' => 'categories', //untuk menandakan link mana yang sedang aktif
         'posts' => $category->posts->load('category', 'author'),
     ]);
 });
@@ -56,6 +60,7 @@ Route::get('/categories/{category:slug}', function(Category $category){
 Route::get('/authors/{author:username}', function(User $author){
     return view('posts', [
         'title' => "Post By Category : $author->name",
+        
         'posts' => $author->posts->load('category', 'author'),
     ]);
 });
