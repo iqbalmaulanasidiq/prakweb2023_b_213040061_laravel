@@ -49,18 +49,18 @@ Route::get('/categories', function(){
     ]);
 });
 
-Route::get('/categories/{category:slug}', function(Category $category){
-    return view('posts', [
-        'title' => "Post By Category : $category->name",
-        'active' => 'categories', //untuk menandakan link mana yang sedang aktif
-        'posts' => $category->posts->load('category', 'author'),
-    ]);
-});
+// Route::get('/categories/{category:slug}', function(Category $category){
+//     return view('posts', [
+//         'title' => "Post By Category : $category->name",
+//         'active' => 'categories', //untuk menandakan link mana yang sedang aktif
+//         'posts' => $category->posts->load('category', 'author'),
+//     ]);
+// });
 
-Route::get('/authors/{author:username}', function(User $author){
-    return view('posts', [
-        'title' => "Post By Category : $author->name",
-        
-        'posts' => $author->posts->load('category', 'author'),
-    ]);
-});
+// Route::get('/authors/{author:username}', function(User $author){
+//     return view('posts', [
+//         'title' => "Post By Category : $author->name",
+//         'active' => 'posts', //untuk menandakan link mana yang sedang aktif
+//         'posts' => $author->posts->load('category', 'author'),
+//     ]);
+// });
