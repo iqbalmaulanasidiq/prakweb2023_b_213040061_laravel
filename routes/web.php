@@ -69,7 +69,6 @@ Route::get('/categories', function(){
 //     ]);
 // });
 
-//login
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
@@ -84,5 +83,7 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/dashboard', function () {
     return view('dashboard.index');
 })->middleware('auth');
+
+Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
 
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');

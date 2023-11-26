@@ -9,7 +9,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('dashboard/posts') ? 'active' : '' }} text-decoration-none text-dark"
+                <a class="nav-link {{ Request::is('dashboard/posts*') ? 'active' : '' }} text-decoration-none text-dark"
                     href="/dashboard/posts">
                     <i data-feather="file-text"></i>
                     My Posts
