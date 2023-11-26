@@ -7,12 +7,12 @@
 
     {{-- Form control section --}}
     <div class="col-lg-8">
-        <form action="/dashboard/posts" method="post">
+        <form action="/dashboard/posts" method="post" class="mb-5">
             @csrf
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
                 <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title"
-                    autofocus value="{{ old('title') }}">
+                required autofocus value="{{ old('title') }}">
                 @error('title')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -20,7 +20,7 @@
                 @enderror
                 <label for="slug" class="form-label">Slug</label>
                 <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug"
-                    disabled readonly value="{{ old('slug') }}">
+                required autofocus value="{{ old('slug') }}">
                 @error('slug')
                     <div class="invalid-feedback">
                         {{ $message }}
